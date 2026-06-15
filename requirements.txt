@@ -1,0 +1,52 @@
+# =============================================================================
+# PIPELINE LiDAR PARA FLORESTAS PLANTADAS v8
+# Dependências Python
+# =============================================================================
+#
+# Instalação recomendada:
+#   conda create -n lidar python=3.11
+#   conda activate lidar
+#   pip install -r requirements.txt
+#
+# IMPORTANTE: Python 3.11 recomendado (3.12+ não testado)
+#
+# =============================================================================
+
+# Núcleo numérico
+numpy>=1.21.0,<2.0.0
+scipy>=1.7.0
+
+# Point cloud I/O
+laspy>=2.3.0
+plyfile>=0.7.4
+
+# Machine Learning (DBSCAN, NearestNeighbors)
+scikit-learn>=1.0.0
+
+# Visualização (plots de diagnóstico na fase 3)
+matplotlib>=3.4.0
+
+# =============================================================================
+# PyTorch — opcional, usado pelo TLS2trees (fase 2)
+# Sem GPU (CPU only):
+#   pip install torch
+# Com GPU NVIDIA (CUDA 11.8):
+#   pip install torch --index-url https://download.pytorch.org/whl/cu118
+# Com GPU NVIDIA (CUDA 12.1):
+#   pip install torch --index-url https://download.pytorch.org/whl/cu121
+# =============================================================================
+
+# =============================================================================
+# FERRAMENTAS EXTERNAS (instalar separadamente)
+# =============================================================================
+#
+# 1. PDAL (processamento LAS — fase 1):
+#    conda install -c conda-forge pdal python-pdal
+#
+# 2. TLS2trees — versão CORRECTA: tls-tools-ucl (fase 2):
+#    git clone https://github.com/tls-tools-ucl/TLS2trees.git
+#    cd TLS2trees && pip install -e .
+#
+#    ATENÇÃO: NÃO usar philwilkes/TLS2trees — parâmetros incompatíveis.
+#
+# =============================================================================
